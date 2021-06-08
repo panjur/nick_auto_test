@@ -1,0 +1,8 @@
+FROM node:14-alpine as build 
+RUN apk add --update docker openrc bash
+RUN rc-update add docker boot
+ADD . /app
+WORKDIR /app
+RUN npm i
+RUN chmod +x ./run.sh
+ENTRYPOINT ["./run.sh"]
