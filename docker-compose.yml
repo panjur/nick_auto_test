@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  tests:
+    image: cucumber-wdio-example
+    build: .
+    command: npm test -- --hostname selenium
+    volumes:
+      - ./screenshots:/app/screenshots
+    depends_on: 
+      - selenium
+  selenium:
+    image: selenium/standalone-chrome:4.0.0-beta-4-prerelease-20210604
+    ports:
+      - 4444:4444
