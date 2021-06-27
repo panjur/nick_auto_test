@@ -317,5 +317,6 @@ When(/^I upload my picture (.+)$/, (photo) => {
 });
 
 Then(/^I succesfully completed the registration$/, () => {
+  SignUpPage.wait(5);
   expect(browser.$('a img[src*="home-icon"]')).toBeDisplayed();
 });
