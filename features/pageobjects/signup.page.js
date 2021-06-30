@@ -49,7 +49,7 @@ class SignUpPage extends Page {
     return elem;
   }
   get inputPassword() {
-    const elem = $('[name="password"]');
+    const elem = $('[type="password"]');
     return elem;
   }
   get selectDay() {
@@ -343,6 +343,37 @@ class SignUpPage extends Page {
     this.waitUntilElementIsDisplayed(elem);
     return elem;
   }
+  get btnMenu() {
+    const elem = $('div img[src*="header-menu"]');
+    this.waitUntilElementIsClickable(elem);
+    return elem;
+  }
+  get btnAccount() {
+    const elem = $('a[href="/account/"]');
+    this.waitUntilElementIsClickable(elem);
+    return elem;
+  }
+  get btnCancelMembership() {
+    const elem = $('a[href*="/disable_account/"]');
+    this.waitUntilElementIsClickable(elem);
+    return elem;
+  }
+  get btnCancellationReason() {
+    const elem = $('div[class*="Hg_"]');
+    this.waitUntilElementIsClickable(elem);
+    return elem;
+  }
+  get btnContinue() {
+    const elem = $('div.Y8XZJHTBPS3VwCjbBz4aj > div');
+    this.waitUntilElementIsClickable(elem);
+    return elem;
+  }
+  get btnAccountCancellation() {
+    const elem = $('input + div div');
+    this.waitUntilElementIsClickable(elem);
+    return elem;
+  }
+
   /**
    * methods to encapsule automation code to interact with the page
    * e.g. to selecting an option or entering the text in the text field
@@ -381,6 +412,30 @@ class SignUpPage extends Page {
 
   clickNext() {
     this.btnNext.click();
+  }
+
+  clickMenu() {
+    this.btnMenu.click();
+  }
+
+  clickAccount() {
+    this.btnAccount.click();
+  }
+
+  clickOnCancelMembership() {
+    this.btnCancelMembership.click();
+  }
+
+  selectMembershipCancelReason() {
+    this.btnCancellationReason.click();
+  }
+
+  clickContinue() {
+    this.btnContinue.click();
+  }
+
+  clickOnAccountCancellation() {
+    this.btnAccountCancellation.click();
   }
 
   enterName(name) {
